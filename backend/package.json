@@ -1,0 +1,27 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/server.js",
+  "scripts": {
+    "prestart": "env $(cat .env) npx sequelize-cli db:create && env $(cat .env) npx sequelize-cli db:migrate",
+    "start": "node .",
+    "drop": "env $(cat .env) npx sequelize-cli db:drop",
+    "seed": "env $(cat .env) npx sequelize-cli db:seed:all",
+    "dev": "nodemon src/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Yuri Torres",
+  "license": "ISC",
+  "dependencies": {
+    "express": "4.17.3",
+    "jsonwebtoken": "9.0.0",
+    "mysql2": "2.1.0",
+    "sequelize": "6.3.4"
+  },
+  "devDependencies": {
+    "nodemon": "2.0.15",
+    "sequelize-cli": "6.6.1"
+  }
+}
