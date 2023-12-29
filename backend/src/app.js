@@ -1,6 +1,7 @@
 // src/app.js
 
 const express = require('express');
+const cors = require('cors');
 
 const UserControllers = require('./controllers/user.controller');
 const { User } = require('./models')
@@ -12,6 +13,7 @@ const {middlewareUser} = require('./middlewares/middlewareUser')
 
 const app = express();
 
+app.use(cors())
 app.use(express.json());
 
 app.get('/user', UserControllers.getAll);
