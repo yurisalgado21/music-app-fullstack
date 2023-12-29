@@ -7,6 +7,12 @@ export default function RegisterUser() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
+
+  const formIsValid = () => {
+    const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const isValid = userName.length >= 8 && regexEmail.test(email) && password.length >= 6;
+    return isValid;
+  }
   
   const handleRegister = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -43,7 +49,7 @@ export default function RegisterUser() {
                 <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required/>
             </label>
             <br />
-            <button type="submit">Register</button>
+            <button type="submit" disabled={!formIsValid()} >Register</button>
         </form>
     </div>
   )

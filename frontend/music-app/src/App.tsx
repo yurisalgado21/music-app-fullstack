@@ -2,17 +2,17 @@
 import {Route, Routes} from 'react-router-dom'
 import RegisterUser from './components/RegisterUser'
 import Login from './components/Login'
+import Home from './components/Home'
 import './App.css'
-import Acesso from './components/Acesso'
+import Entry from './components/Entry'
 
 function App() {
-  // const [count, setCount] = useState(0)
-
   return (
     <Routes>
-      <Route path='/' element={<Acesso />} />
+      <Route path='/' element={<Entry />} />
       <Route path='/user' element={<RegisterUser />} />
       <Route path='/login' element={<Login />} />
+      <Route path='/home' element={<Home />} />
     </Routes>
   )
 }
