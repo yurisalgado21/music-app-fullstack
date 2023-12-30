@@ -1,10 +1,11 @@
 // import React from 'react'
 import { Link } from 'react-router-dom'
+import imageApp from '../assets/Black White Minimalist Logo.png'
 
 export default function Entry() {
   return (
     <div>
-        <h1>Music App</h1>
+        <img src={imageApp} />
         <br />
         <label>
             Crie sua conta:
