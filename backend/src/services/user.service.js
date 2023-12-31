@@ -13,7 +13,19 @@ const getAll = async () => {
   return users;
 };
 
+const updatePassword = async ({email, password}) => {
+  await User.update(
+    {password},
+    {where: {email}},
+  );
+
+  const user = await User.findOne({where: {email}});
+
+  return user;
+}
+
 module.exports = {
   getAll,
-  createUser
+  createUser,
+  updatePassword
 };

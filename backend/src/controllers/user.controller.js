@@ -4,8 +4,6 @@ const userService = require('../services/user.service');
 const { User } = require('../models');
 const { generateToken } = require('../utils/generateToken');
 
-const error500Message = 'Algo deu errado';
-
 const createUser = async (req, res) => {
   try {
     const {userName, email, password} = req.body;
@@ -20,7 +18,7 @@ const createUser = async (req, res) => {
     return res.status(201).json({token})
   } catch (error) {
     console.log(error.message);
-    return res.status(500).json({ message: error500Message });
+    return res.status(500).json({ message: error.message });
   }
 }
 
@@ -30,11 +28,28 @@ const getAll = async (_req, res) => {
     return res.status(200).json(users);
   } catch (e) {
     console.log(e.message);
-    res.status(500).json({ message: 'Ocorreu um erro' });
+    res.status(500).json({ message: e.message });
   }
 };
 
+const updatePassword = async (req, res) => {
+  try {
+    const {email, password} = req.body;
+    if (!email || !password) {
+      return res.status(400).json({
+        message: 'Some required fields are missing',
+      }); 
+    }
+    const newPasswordUser = await userService.updatePassword({email, password})
+    return res.status(200).json(newPasswordUser);
+  } catch (error) {
+    console.log(e.message);
+    res.status(500).json({ message: e.message });
+  }
+}
+
 module.exports = {
   getAll,
-  createUser
+  createUser,
+  updatePassword
 };

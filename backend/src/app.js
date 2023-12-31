@@ -28,6 +28,8 @@ app.post('/login', middlewareLogin, async (req, res) => {
     return res.status(200).json({token})
 })
 
+app.put('/login', UserControllers.updatePassword)
+
 app.post('/user', middlewareUser, UserControllers.createUser);
 
 module.exports = app;
