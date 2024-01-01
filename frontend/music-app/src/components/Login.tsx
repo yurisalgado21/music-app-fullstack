@@ -1,8 +1,10 @@
-import React, {useState} from 'react'
-import { useNavigate } from 'react-router-dom';
+import React, {useContext, useState} from 'react'
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios'
+import DataContext from '../context/DataContext';
 
 export default function Login() {
+  const {login} = useContext(DataContext)
   const [userName, setUserName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -50,7 +52,13 @@ export default function Login() {
             email,
             password,
         });
-        console.log(response.data);
+        // console.log(response.data);
+        const {token} = response.data;
+        console.log( token);
+        
+        sessionStorage.setItem('token', token)
+        sessionStorage.setItem('userName', userName)
+        login(userName)
         navigate('/home')
     } catch (error) {
         console.error('Error during Login:', error);
@@ -102,6 +110,10 @@ export default function Login() {
           <button type="button" onClick={handleChangePassword}>Forgot my password</button>
         </>
       )}
+      <br />
+      Crie sua conta:
+      <br />
+      <Link to="/user">Inscreva-se</Link>
       {loginIsNotVisible && (
         <>
           <form onSubmit={handleNewPassword}>

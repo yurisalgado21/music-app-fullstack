@@ -1,10 +1,12 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { AlbumType } from '../types';
 import { Link } from 'react-router-dom';
 import Loading from './Loading';
 import searchAlbumsAPI from '../utils/fetchApi';
+import DataContext from '../context/DataContext';
 
 export default function Home() {
+  const {username} = useContext(DataContext)
   const [nameArtist, setNameArtist] = useState('');
   const [inputName, setInputName] = useState('');
   const [albums, setAlbums] = useState<AlbumType[]>([]);
@@ -28,6 +30,7 @@ export default function Home() {
 
   return (
     <div>
+      <p>{username}</p>
       <h2>Home</h2>
       <form>
         <input 
