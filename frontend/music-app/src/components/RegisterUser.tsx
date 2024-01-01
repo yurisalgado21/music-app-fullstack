@@ -7,9 +7,11 @@ export default function RegisterUser() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
+  const displayInvalidPassword = 'invalid-password-check';
+  const displayValidPassword = 'valid-password-check';
+  const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
   const formIsValid = () => {
-    const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const isValid = userName.length >= 8 && regexEmail.test(email) && password.length >= 6;
     return isValid;
   }
@@ -39,15 +41,20 @@ export default function RegisterUser() {
                 <input type="text" value={userName} onChange={(e) => setUserName(e.target.value)} required/>
             </label>
             <br />
+            <p className={userName.length < 8
+            ? displayInvalidPassword : displayValidPassword}>Possuir mais de 8 caracteres</p>
             <label>
                 Email:
                 <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required/>
             </label>
             <br />
+            <p className={regexEmail.test(email) ? displayValidPassword : displayInvalidPassword}>Ter um email válido</p>
             <label>
                 Password:
                 <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required/>
             </label>
+            <p className={password.length < 6 ?
+            displayInvalidPassword : displayValidPassword}>Possuir mais de 6 caracteres</p>
             <br />
             <button type="submit" disabled={!formIsValid()} >Register</button>
         </form>

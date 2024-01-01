@@ -8,6 +8,18 @@ export default function Login() {
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
   const [loginIsNotVisible, setLoginIsNotVisible] = useState(false);
+  const [hideOrShow, setHideOrShow] = useState(false);
+  const [changeHidePassword, setChangeHidePassword] = useState('password')
+
+  const hidePasswordOrShow = () => {
+    if (hideOrShow === false) {
+      setHideOrShow(true);
+      setChangeHidePassword('text');
+    } else {
+      setHideOrShow(false);
+      setChangeHidePassword('password');
+    }
+  }
 
   const formIsValid = () => {
     const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -81,7 +93,8 @@ export default function Login() {
               </label>
               <label>
                   Password:
-                  <input type="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
+                  <input type={changeHidePassword} value={password} onChange={(e) => setPassword(e.target.value)}/>
+                  <button type="button" onClick={hidePasswordOrShow}>Hide Or Show</button>
                   <br />
               </label>
               <button type="submit" disabled={!formIsValid()} >Login</button>
@@ -99,7 +112,8 @@ export default function Login() {
               </label>
               <label>
                   New Password:
-                  <input type="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
+                  <input type={changeHidePassword} value={password} onChange={(e) => setPassword(e.target.value)}/>
+                  <button type="button" onClick={hidePasswordOrShow}>Hide Or Show</button>
                   <br />
               </label>
               <button type="submit" disabled={!formNewPasswordIsValid()}>Change Password</button>

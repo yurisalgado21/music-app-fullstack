@@ -40,3 +40,11 @@
 .read-the-docs {
   color: #888;
 }
+
+.valid-password-check {
+  color: #aeffb6;
+}
+
+.invalid-password-check {
+  color: #d00000;
+}
