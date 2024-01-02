@@ -2,6 +2,7 @@ import React, {useContext, useState} from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios'
 import DataContext from '../context/DataContext';
+import Swal from 'sweetalert2'
 
 export default function Login() {
   const {login} = useContext(DataContext)
@@ -52,15 +53,20 @@ export default function Login() {
             email,
             password,
         });
+          
         // console.log(response.data);
         const {token} = response.data;
-        console.log( token);
         
         sessionStorage.setItem('token', token)
         sessionStorage.setItem('userName', userName)
         login(userName)
         navigate('/home')
     } catch (error) {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "email, password or username are incorrect!",
+      });
         console.error('Error during Login:', error);
     }
   }
