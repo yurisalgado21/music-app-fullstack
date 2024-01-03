@@ -5,6 +5,7 @@ import Login from './components/Login'
 import Home from './components/Home'
 import './App.css'
 import Entry from './components/Entry'
+import Album from './components/Album'
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Route path='/user' element={<RegisterUser />} />
       <Route path='/login' element={<Login />} />
       <Route path='/home' element={<Home />} />
+      <Route path="/album/:id" element={<Album />} />
     </Routes>
   )
 }
