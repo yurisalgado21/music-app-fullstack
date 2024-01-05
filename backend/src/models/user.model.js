@@ -24,7 +24,11 @@ const User = (sequelize, DataTypes) => {
         User.hasMany(models.SavedAlbum, {
             foreignKey: 'user_id',
             as: 'saved_album'
-        })
+        });
+        User.hasMany(models.SavedSong, {
+            foreignKey: 'user_id',
+            as: 'saved_song'
+        });
     }
 
     return User;
