@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { AlbumType, SongType } from '../types';
 import getMusics from '../utils/musicsAPI';
 import Loading from './Loading';
@@ -28,6 +28,7 @@ export default function Album() {
 
   return (
     <div>
+        <Link to="/favorites/musics">Go to my musics</Link>
         {loading && <Loading />}
         {!loading && albumInfo !== null && (
             <div>

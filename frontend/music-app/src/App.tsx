@@ -6,6 +6,7 @@ import Home from './components/Home'
 import './App.css'
 import Entry from './components/Entry'
 import Album from './components/Album'
+import FavoritesMusics from './components/FavoritesMusics'
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Route path='/login' element={<Login />} />
       <Route path='/home' element={<Home />} />
       <Route path="/album/:id" element={<Album />} />
+      <Route path="/favorites/musics" element={<FavoritesMusics />} />
     </Routes>
   )
 }
