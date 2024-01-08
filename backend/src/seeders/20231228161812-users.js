@@ -9,6 +9,7 @@ module.exports = {
         user_name: 'adminzao',
         email: 'admintonzao@gmail.com',
         password: '123456',
+        image: 'https://sportbuzz.uol.com.br/media/_versions/gettyimages-52491565_widelg.jpg',
       },
     ], {timestamps: false});
   },

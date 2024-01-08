@@ -14,6 +14,9 @@ const User = (sequelize, DataTypes) => {
         },
         password: {
             type: DataTypes.STRING
+        },
+        image: {
+            type: DataTypes.STRING,
         }
     }, {
         timestamps: false,
