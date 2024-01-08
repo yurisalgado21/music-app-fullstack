@@ -57,8 +57,10 @@ export default function Login() {
         // console.log(response.data);
         const {token} = response.data;
         
-        sessionStorage.setItem('token', token)
-        sessionStorage.setItem('userName', userName)
+        sessionStorage.setItem('token', token);
+        sessionStorage.setItem('userName', userName);
+        sessionStorage.setItem('email', email);
+        sessionStorage.setItem('password', password);
         login(userName)
         navigate('/home')
     } catch (error) {

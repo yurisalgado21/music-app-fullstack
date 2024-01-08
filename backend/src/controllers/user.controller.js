@@ -32,6 +32,17 @@ const getAll = async (_req, res) => {
   }
 };
 
+const getUser = async (req, res) => {
+  try {
+    const {email} = req.body;
+    const user = await userService.getUser(email);
+    return res.status(200).json(user);
+  } catch (error) {
+    console.log(error.message);
+    return res.status(500).json({message: error.message})
+  }
+}
+
 const updatePassword = async (req, res) => {
   try {
     const {email, password} = req.body;
@@ -50,6 +61,7 @@ const updatePassword = async (req, res) => {
 
 module.exports = {
   getAll,
+  getUser,
   createUser,
   updatePassword
 };

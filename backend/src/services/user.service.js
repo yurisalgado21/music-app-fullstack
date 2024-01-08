@@ -13,6 +13,11 @@ const getAll = async () => {
   return users;
 };
 
+const getUser = async (email) => {
+  const user = await User.findOne({where: {email: email}});
+  return user;
+}
+
 const updatePassword = async ({email, password}) => {
   await User.update(
     {password},
@@ -26,6 +31,7 @@ const updatePassword = async ({email, password}) => {
 
 module.exports = {
   getAll,
+  getUser,
   createUser,
   updatePassword
 };

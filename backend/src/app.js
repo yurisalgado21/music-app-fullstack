@@ -18,6 +18,8 @@ app.use(express.json());
 
 app.get('/user', UserControllers.getAll);
 
+app.get('/login', UserControllers.getUser);
+
 app.post('/login', middlewareLogin, async (req, res) => {
     const {userName, email, password} = req.body;
     const user = await User.findOne({where: {userName, email, password}});
