@@ -11,8 +11,11 @@ export default function MusicCard(track: SongType & {myFavoritesSongs: () => voi
   const [listMyFavoritesMusics, setListMyFavoritesMusics] = useState<SongType[]>();
   const [loading, setLoading] = useState(false);
 
-  console.log(listMyFavoritesMusics);
-  console.log(loading);
+  // console.log(listMyFavoritesMusics);
+  // console.log(loading);
+
+  console.log(trackId);
+  
 
   const isFavoriteMusic = async (isFavorite: boolean) => {
     setFavoriteMusic(isFavorite);

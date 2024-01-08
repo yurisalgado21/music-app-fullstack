@@ -25,7 +25,7 @@ export default function RegisterUser() {
             email,
             password
         });
-        console.log(response.data);
+        // console.log(response.data);
         navigate('/login')
     } catch (error) {
         console.error('Error during registration:', error);

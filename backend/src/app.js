@@ -4,6 +4,7 @@ const express = require('express');
 const cors = require('cors');
 
 const UserControllers = require('./controllers/user.controller');
+const SaveControllers = require('./controllers/save.controller');
 const { User } = require('./models')
 
 const {generateToken} = require('./utils/generateToken')
@@ -33,5 +34,7 @@ app.post('/login', middlewareLogin, async (req, res) => {
 app.put('/login', UserControllers.updatePassword)
 
 app.post('/user', middlewareUser, UserControllers.createUser);
+
+app.post('/album/music', SaveControllers.saveSong);
 
 module.exports = app;

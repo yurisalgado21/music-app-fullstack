@@ -81,7 +81,7 @@ export default function Login() {
           email,
           password,
       });
-      console.log(response.data);
+      // console.log(response.data);
       setLoginIsNotVisible(false)
       setEmail('')
       setPassword('')
