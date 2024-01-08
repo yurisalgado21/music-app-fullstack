@@ -18,7 +18,13 @@ const SavedSongModel = (sequelize, DataTypes) => {
         },
         songName: {
             type: DataTypes.STRING
-        }
+        },
+        trackId: {
+            type: DataTypes.INTEGER,
+        },
+        previewUrl: {
+            type: DataTypes.STRING,
+        },
     },  {
         tableName: 'saved_song',
         timestamps: false,

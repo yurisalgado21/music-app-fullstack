@@ -31,6 +31,12 @@ module.exports = {
       song_name: {
         type: Sequelize.STRING,
         allowNull: false,
+      },
+      track_id: {
+        type: Sequelize.INTEGER,
+      },
+      preview_url: {
+        type: Sequelize.STRING,
       }
     });
   },
